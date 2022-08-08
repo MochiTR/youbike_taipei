@@ -4,6 +4,7 @@
     <label>
       區域
     <select v-model="currentArea" v-on:change="setCurrentArea">
+        <option value="1" disabled>請選擇區域</option>
         <option v-for="(data,index) in filterData" :key="index">{{data}}</option>
       </select>
     </label>
@@ -19,7 +20,7 @@
 export default {
   data () {
     return {
-      currentArea: ''
+      currentArea: '1'
     }
   },
   computed: {

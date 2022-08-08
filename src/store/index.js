@@ -5,8 +5,6 @@ export default createStore({
   state: {
     // 選擇的區域/搜尋的名稱
     currentArea: '',
-    // 根據currentArea回傳的結果
-    resultList: [],
     // 所有YouBike資料
     allData: []
   },
