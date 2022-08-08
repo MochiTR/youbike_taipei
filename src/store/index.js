@@ -21,6 +21,9 @@ export default createStore({
   mutations: {
     setAllData (state, data) {
       state.allData = data
+    },
+    setCurrentArea (state, data) {
+      state.currentArea = data
     }
   },
   actions: {

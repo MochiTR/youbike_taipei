@@ -3,7 +3,7 @@
    <div class="search-area">
     <label>
       區域
-    <select>
+    <select v-model="currentArea" v-on:change="setCurrentArea">
         <option v-for="(data,index) in filterData" :key="index">{{data}}</option>
       </select>
     </label>
@@ -18,11 +18,18 @@
 <script>
 export default {
   data () {
-    return {}
+    return {
+      currentArea: ''
+    }
   },
   computed: {
     filterData () {
       return this.$store.getters.filterData
+    }
+  },
+  methods: {
+    setCurrentArea () {
+      this.$store.commit('setCurrentArea', this.currentArea)
     }
   },
   created () {
