@@ -1,3 +1,13 @@
+@mixin pc {
+    @media(min-width:768px){
+        @content
+    }
+}
+@mixin pad {
+    @media(min-width:576px){
+        @content
+    }
+}
 #app {
     * {
         box-sizing: border-box;
@@ -8,8 +18,12 @@
     text-align: center;
 }
 .search-area {
-    width:25%;
+    width:50%;
     margin:auto;
+    margin-bottom:2em;
+    @include pad {
+        width:25%;
+    }
     label {
         line-height: 1.5;
     }
@@ -19,5 +33,24 @@
     }
     input {
         width:100%;
+    }
+}
+.result-list {
+    width:80%;
+    margin:auto;
+    @include pad {
+        display:flex;
+        flex-wrap:wrap;
+    }
+    li {
+        border:1px solid black;
+        padding:1.2em;
+        margin:0 -1px -1px 0;
+        @include pad {
+            width:50%;
+        }
+        @include pc {
+            width:33.3333%;
+        }
     }
 }
