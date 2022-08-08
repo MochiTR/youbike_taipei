@@ -4,9 +4,7 @@
     <label>
       區域
     <select>
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
+        <option v-for="(data,index) in filterData" :key="index">{{data}}</option>
       </select>
     </label>
 
@@ -17,4 +15,18 @@
    </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data () {
+    return {}
+  },
+  computed: {
+    filterData () {
+      return this.$store.getters.filterData
+    }
+  },
+  created () {
+    this.$store.dispatch('getYouBikeData')
+  }
+}
+</script>
