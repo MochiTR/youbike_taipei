@@ -1,0 +1,23 @@
+#app {
+    * {
+        box-sizing: border-box;
+    }
+}
+.title {
+    margin:2em 0 2em 0;
+    text-align: center;
+}
+.search-area {
+    width:25%;
+    margin:auto;
+    label {
+        line-height: 1.5;
+    }
+    select {
+        width:100%;
+        margin-bottom:2em;
+    }
+    input {
+        width:100%;
+    }
+}
