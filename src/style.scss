@@ -37,6 +37,7 @@
 }
 .result-list {
     width:80%;
+    height:100%;
     margin:auto;
     @include pad {
         display:flex;
@@ -52,5 +53,12 @@
         @include pc {
             width:33.3333%;
         }
+    }
+}
+.pag {
+    margin:2em 0 2em 0;
+    text-align: center;
+    button {
+        margin:0.5em;
     }
 }
