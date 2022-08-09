@@ -3,7 +3,7 @@
    <div class="result-area">
    <ul class="result-list">
      <li v-for="result in currData" :key="result.sno">
-      <p>{{result.sna}}</p>
+      <p v-html="highlight(result.sna)"></p>
         <div class="result-info">站點停車格數量:{{result.tot}}</div>
         <div class="result-info">站點目前車輛數:{{result.sbi}}</div>
         <div class="result-info">更新時間:{{result.mday}}</div>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
@@ -31,7 +33,8 @@ export default {
   computed: {
     filterResult () {
       return this.$store.getters.filterResult
-    }
+    },
+    ...mapState(['keyWord'])
   },
   methods: {
     // 處理頁數對應資料
@@ -54,6 +57,9 @@ export default {
       for (let i = 1; i <= pagNum; i++) {
         this.pags.push(i)
       }
+    },
+    highlight (word) {
+      return word.replace(new RegExp(this.keyWord, 'g'), `<span class="highlight">${this.keyWord}</span>`)
     }
   },
   watch: {
