@@ -11,7 +11,7 @@
 
     <label>
       搜尋
-      <input type="text">
+      <input type="text" v-model="keyWord">
     </label>
    </div>
 </template>
@@ -26,6 +26,14 @@ export default {
   computed: {
     filterData () {
       return this.$store.getters.filterData
+    },
+    keyWord: {
+      get () {
+        return this.$store.state.keyWord
+      },
+      set (value) {
+        this.$store.commit('setKeyWord', value)
+      }
     }
   },
   methods: {

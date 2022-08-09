@@ -3,10 +3,12 @@ import axios from 'axios'
 
 export default createStore({
   state: {
-    // 選擇的區域/搜尋的名稱
+    // 選擇的區域
     currentArea: '',
     // 所有YouBike資料
-    allData: []
+    allData: [],
+    // 搜尋的名稱
+    keyWord: ''
   },
   getters: {
     // 將allData過濾(無重複名稱)
@@ -19,11 +21,17 @@ export default createStore({
 
       return Object.keys(result)
     },
-    // 將allData過濾(currentArea)
+    // 將allData過濾(currentArea/keyWord)
     filterResult (state) {
-      return state.allData.filter(function (item) {
-        return item.sarea === state.currentArea
-      })
+      if (state.keyWord) {
+        return state.allData.filter(function (item) {
+          return item.sna.match(state.keyWord)
+        })
+      } else {
+        return state.allData.filter(function (item) {
+          return item.sarea === state.currentArea
+        })
+      }
     }
   },
   mutations: {
@@ -32,6 +40,9 @@ export default createStore({
     },
     setCurrentArea (state, data) {
       state.currentArea = data
+    },
+    setKeyWord (state, data) {
+      state.keyWord = data
     }
   },
   actions: {
