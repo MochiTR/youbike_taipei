@@ -3,7 +3,6 @@
    <h1 class="title">Taipei YouBike 查詢系統</h1>
   <LightBox ref="lightbox"></LightBox>
   <SearchArea></SearchArea>
-  <ResultFilter></ResultFilter>
   <ResultArea @emit-map="openLightbox"></ResultArea>
   </div>
 </template>
@@ -12,15 +11,13 @@
 import SearchArea from '@/components/SearchArea.vue'
 import ResultArea from '@/components/ResultArea.vue'
 import LightBox from './components/LightBox.vue'
-import ResultFilter from './components/ResultFilter.vue'
 
 export default {
   name: 'App',
   components: {
     SearchArea,
     ResultArea,
-    LightBox,
-    ResultFilter
+    LightBox
   },
   methods: {
     openLightbox (lat, lng) {

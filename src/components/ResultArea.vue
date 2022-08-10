@@ -1,6 +1,7 @@
 <template>
 <!-- resultArea -->
    <div class="result-area">
+      <ResultFilter @emit-filter="changeArrFilter"></ResultFilter>
    <ul class="result-list">
      <li v-for="result in currData" :key="result.sno" title="開啟地圖" v-on:click="$emit('emit-map',result.lat,result.lng)">
       <p v-html="highlight(result.sna)"></p>
@@ -19,8 +20,12 @@
 
 <script>
 import { mapState } from 'vuex'
+import ResultFilter from './ResultFilter.vue'
 
 export default {
+  components: {
+    ResultFilter
+  },
   data () {
     return {
       currPage: 1,
@@ -60,6 +65,10 @@ export default {
     },
     highlight (word) {
       return word.replace(new RegExp(this.keyWord, 'g'), `<span class="highlight">${this.keyWord}</span>`)
+    },
+    // 把排序後的資料傳入
+    changeArrFilter (change) {
+      this.setListData(change, this.eachPage, this.currPage)
     }
   },
   watch: {
