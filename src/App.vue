@@ -20,8 +20,8 @@ export default {
     LightBox
   },
   methods: {
-    openLightbox () {
-      this.$refs.lightbox.showLightbox()
+    openLightbox (lat, lng) {
+      this.$refs.lightbox.showLightbox(lat, lng)
     }
   }
 }

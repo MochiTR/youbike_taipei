@@ -2,7 +2,7 @@
 <!-- resultArea -->
    <div class="result-area">
    <ul class="result-list">
-     <li v-for="result in currData" :key="result.sno" title="開啟地圖" v-on:click="$emit('emit-map')">
+     <li v-for="result in currData" :key="result.sno" title="開啟地圖" v-on:click="$emit('emit-map',result.lat,result.lng)">
       <p v-html="highlight(result.sna)"></p>
         <div class="result-info">站點停車格數量:{{result.tot}}</div>
         <div class="result-info">站點目前車輛數:{{result.sbi}}</div>

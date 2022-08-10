@@ -1,7 +1,7 @@
 <template>
 <transition name='lbox'>
     <div class='wrap' v-if='isOpen'>
-    <img :src="img">
+    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen :src=location></iframe>
     <button class="closeBtn" @click="closeLightbox">{{close}}</button>
     </div>
 </transition>
@@ -12,13 +12,14 @@ export default {
   data () {
     return {
       isOpen: false,
-      img: 'https://images.unsplash.com/photo-1659983732775-51adb59b0263?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+      location: '',
       close: 'X'
     }
   },
   methods: {
-    showLightbox () {
+    showLightbox (lat, lng) {
       this.isOpen = true
+      this.location = `https://www.google.com/maps/embed/v1/place?q=${lat},${lng}&key=AIzaSyAucCX8isjeQUPofy-p-eGIf51oyFwrebA`
     },
     closeLightbox () {
       this.isOpen = false
@@ -39,7 +40,7 @@ export default {
   z-index:333;
   display:flex;
 }
-img {
+iframe {
   margin:auto;
   justify-content: center;
   align-items: center;
