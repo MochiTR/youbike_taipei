@@ -1,7 +1,7 @@
 <template>
 <!-- resultArea -->
    <div class="result-area">
-      <ResultFilter @emit-filter="changeArrFilter"></ResultFilter>
+      <ResultFilter @emit-filter="changeArrFilter" ref="resultFilter"></ResultFilter>
    <ul class="result-list">
      <li v-for="result in currData" :key="result.sno" title="開啟地圖" v-on:click="$emit('emit-map',result.lat,result.lng)">
       <p v-html="highlight(result.sna)"></p>
@@ -101,6 +101,7 @@ export default {
       this.$refs.pag.scrollTo({
         left: 0, behavior: 'smooth'
       })
+      this.$refs.resultFilter.resetFilter()
     }
   }
 }

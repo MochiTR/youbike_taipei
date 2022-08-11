@@ -64,6 +64,9 @@ export default {
     // 不排序(預設) id由低到高
     sortFun5 (a, b) {
       return a.sno < b.sno ? -1 : a.sno > b.sno ? 1 : 0
+    },
+    resetFilter () {
+      this.filterType = 5
     }
   }
 }
