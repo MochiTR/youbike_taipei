@@ -98,6 +98,9 @@ export default {
       this.currPage = 1
       this.setListData(this.filterResult, this.eachPage, this.currPage)
       this.setPag(this.filterResult, this.eachPage)
+      this.$refs.pag.scrollTo({
+        left: 0, behavior: 'smooth'
+      })
     }
   }
 }
