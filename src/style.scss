@@ -13,12 +13,16 @@
     src: url('/src/assets/fonts/jf-openhuninn-1.1/jf-openhuninn-1.1.ttf')format('truetype');
 }
 #app {
-    background: linear-gradient(#8cda8c, #9198e5);
     height:100%;
     font-family: huninn;
     * {
         box-sizing: border-box;
     }
+}
+body {
+    background: linear-gradient(180deg,#8cda8c, #9198e5);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 .title {
     padding:2em 0 2em 0;
