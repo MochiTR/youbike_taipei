@@ -74,6 +74,7 @@ export default {
   },
   watch: {
     filterResult () {
+      this.currPage = 1
       this.setListData(this.filterResult, this.eachPage, this.currPage)
       this.setPag(this.filterResult, this.eachPage)
     }
