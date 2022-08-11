@@ -13,7 +13,7 @@
       </li>
    </ul>
    <div class="pag">
-   <button v-for="btn in pags" :key="btn" v-on:click="setListData(filterResult, eachPage, btn)">{{btn}}</button>
+   <button v-for="btn in pags" :key="btn" v-on:click="setListData(filterResult, eachPage, btn)" :class="{active:btn === currPage}">{{btn}}</button>
    </div>
   </div>
 </template>
@@ -44,6 +44,7 @@ export default {
   methods: {
     // 處理頁數對應資料
     setListData (all, much, page) {
+      this.currPage = page
       // 處理放置資料,第一頁1~10,第二頁10~20..
       if (page > 1) {
         this.arrFilter = all.slice(page - 1 + '0', much * page)
