@@ -8,14 +8,22 @@
         @content
     }
 }
+@font-face {
+    font-family: 'huninn';
+    src: url('/src/assets/fonts/jf-openhuninn-1.1/jf-openhuninn-1.1.ttf')format('truetype');
+}
 #app {
+    background: linear-gradient(#8cda8c, #9198e5);
+    height:100%;
+    font-family: huninn;
     * {
         box-sizing: border-box;
     }
 }
 .title {
-    margin:2em 0 2em 0;
+    padding:2em 0 2em 0;
     text-align: center;
+    font-size: 24px;
 }
 .search-area {
     width:50%;
@@ -30,9 +38,26 @@
     select {
         width:100%;
         margin-bottom:2em;
+        padding:0.6em;
+        border-radius: 5px;
+        border: 2px solid #4c790c;
+        transition:all 0.3s;
+        &:focus {
+            border:2px solid #7fbd28;
+            box-shadow: 5px 5px 3px #7fbd28;
+        }
     }
     input {
         width:100%;
+        padding:0.6em;
+        border-radius: 5px;
+        border: 2px solid #4c790c;
+        transition:all 0.3s;
+        &:focus {
+            border:2px solid #7fbd28;
+            outline:none;
+            box-shadow: 5px 5px 3px #7fbd28;
+        }
     }
 }
 .result-filter {
@@ -52,6 +77,7 @@
         border:1px solid black;
         padding:1.2em;
         margin:0 -1px -1px 0;
+        line-height: 1.8;
         cursor:pointer;
         @include pad {
             width:50%;
@@ -62,7 +88,7 @@
     }
 }
 .pag {
-    margin:2em 0 2em 0;
+    padding:2em 0 2em 0;
     text-align: center;
     .pag_group {
         width:25%;
@@ -97,4 +123,16 @@
 }
 .highlight {
     color:rgb(1, 145, 20)
+}
+.result-filter {
+    select {
+        padding:0.4em;
+        border-radius: 5px;
+        border: 2px solid #4c790c;
+        transition:all 0.3s;
+        &:focus {
+            border:2px solid #7fbd28;
+            box-shadow: 5px 5px 3px #7fbd28;
+        }
+    }
 }

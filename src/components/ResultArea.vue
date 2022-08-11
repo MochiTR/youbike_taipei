@@ -103,7 +103,9 @@ export default {
       this.$refs.pag.scrollTo({
         left: 0, behavior: 'smooth'
       })
-      this.$refs.resultFilter.resetFilter()
+      if (this.filterResult.length !== 0) {
+        this.$refs.resultFilter.resetFilter()
+      }
     }
   }
 }
