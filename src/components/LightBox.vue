@@ -1,7 +1,7 @@
 <template>
 <transition name='lbox'>
     <div class='wrap' v-if='isOpen'>
-    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen :src=location></iframe>
+    <iframe style="border:0" loading="lazy" allowfullscreen :src=location></iframe>
     <button class="closeBtn" @click="closeLightbox">{{close}}</button>
     </div>
 </transition>
@@ -45,6 +45,8 @@ iframe {
   justify-content: center;
   align-items: center;
   position:relative;
+  width:60%;
+  height:60%;
 }
 .closeBtn {
   position:absolute;
