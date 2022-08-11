@@ -82,6 +82,7 @@ export default {
         this.$refs.pag.scrollTo({
           left: this.$refs.pag.scrollLeft - 65, behavior: 'smooth'
         })
+        this.setListData(this.filterResult, this.eachPage, this.currPage)
       }
     },
     nextPag () {
@@ -90,6 +91,7 @@ export default {
         this.$refs.pag.scrollTo({
           left: this.$refs.pag.scrollLeft + 65, behavior: 'smooth'
         })
+        this.setListData(this.filterResult, this.eachPage, this.currPage)
       }
     }
   },
