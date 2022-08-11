@@ -14,6 +14,7 @@
    </ul>
    <div class="pag">
    <button v-for="btn in pags" :key="btn" v-on:click="setListData(filterResult, eachPage, btn)" :class="{active:btn === currPage}">{{btn}}</button>
+    <div class="pag_info" v-if="currData!=''">目前頁數:{{currPage}} / 總頁數:{{pags.length}}</div>
    </div>
   </div>
 </template>
