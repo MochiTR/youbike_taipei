@@ -13,7 +13,11 @@
       </li>
    </ul>
    <div class="pag">
+   <button v-if="currData!=''" class="pre_btn" v-on:click="prePag">←</button>
+   <section class="pag_group" ref="pag">
    <button v-for="btn in pags" :key="btn" v-on:click="setListData(filterResult, eachPage, btn)" :class="{active:btn === currPage}">{{btn}}</button>
+   </section>
+   <button v-if="currData!=''" class="pre_btn" v-on:click="nextPag">→</button>
     <div class="pag_info" v-if="currData!=''">目前頁數:{{currPage}} / 總頁數:{{pags.length}}</div>
    </div>
   </div>
@@ -71,6 +75,22 @@ export default {
     // 把排序後的資料傳入
     changeArrFilter (change) {
       this.setListData(change, this.eachPage, this.currPage)
+    },
+    prePag () {
+      if (this.currPage > 1) {
+        this.currPage -= 1
+        this.$refs.pag.scrollTo({
+          left: this.$refs.pag.scrollLeft - 65, behavior: 'smooth'
+        })
+      }
+    },
+    nextPag () {
+      if (this.currPage < this.pags.length) {
+        this.currPage += 1
+        this.$refs.pag.scrollTo({
+          left: this.$refs.pag.scrollLeft + 65, behavior: 'smooth'
+        })
+      }
     }
   },
   watch: {
