@@ -15,7 +15,7 @@
 ## Demo
 
 ![taipei_youbike_demo](https://imgur.com/sK6Zoo5.gif)
-![taipei_youbike_RWD_demo](https://github.com/MochiTR/youbike_taipei/blob/master/src/assets/youbike_taipei_rwd.gif)
+![taipei_youbike_RWD_demo](https://imgur.com/WFJOvG3.gif)
 
 
 ## 資料
